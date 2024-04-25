@@ -278,12 +278,8 @@ fn encrypt_AES128(aes128: &AES128, bytes: &[u8]) -> Vec<u8> {
 
 fn encrypt_block_AES128(aes128: &AES128, bytes: &[u8;16]) -> [u8;16] {
     let mut result = [0u8;16];
-
     let mut state = [[0u8;4];4];
-    for i in 0..16 {
-        state[i%4][i/4] = bytes[i];
-    }
-
+    
     add_round_key(&mut state, &clone_into_array(&aes128.expanded_key[0..4]));
 
     for i in 1..10 {

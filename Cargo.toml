@@ -6,5 +6,13 @@ edition = "2018"
 
 [dependencies]
 clap = "2.33.0"
+dhat = "0.3.3"
 hex = "*"
+memory-stats = "1.1.0"
 rand = "0.5.4"
+
+[profile.release]
+debug = 1
+
+[features]
+dhat-heap = []
